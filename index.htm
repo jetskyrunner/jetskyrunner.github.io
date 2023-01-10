@@ -1,0 +1,182 @@
+<!-- HTML -->
+<div id="sphere-container">
+  <a href="https://soundcloud.com/petenebula">
+    <div id="sphere"></div>
+  </a>
+</div>
+
+<style>
+  /* CSS */
+  #sphere-container {
+    perspective: 1000px;
+    height: 500px;
+    width: 500px;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  #sphere {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 400px;
+    width: 400px;
+    border-radius: 50%;
+    background: linear-gradient(to right, #0043d4, #008dd4);
+    animation: spin 6s linear infinite;
+    cursor: pointer;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotateY(0deg) rotateX(0deg);
+    }
+    100% {
+      transform: rotateY(360deg) rotateX(360deg);
+    }
+  }
+</style>
+<script>
+  // JavaScript
+  const sphere = document.getElementById('sphere');
+  
+  let hue = 0;
+  setInterval(() => {
+    hue = (hue + 1) % 360;
+    sphere.style.background = `linear-gradient(to right, hsl(${hue}, 100%, 50%), hsl(${(hue + 120) % 360}, 100%, 50%), hsl(${(hue + 200) % 360}, 100%, 50%))`;
+  }, 50);
+</script>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Website</title>
+  <style>
+    body {
+      font-family: dactylmono, sans-serif;
+      background-color: black;
+      border: 2px #e2e3bc;
+    }
+
+    h1 {
+      color: #ffffe4;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 1.5;
+      color: #bfff00;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: black;
+      padding: 60px;
+    }
+
+    .nav a {
+      color: #e2e3bc;
+      text-decoration: none;
+      font-size: 16px;
+      margin: 0 10px;
+    }
+
+    .nav a:hover {
+      color: lightgray;
+    }
+
+    .circle {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-color: white;
+      margin: 20px auto;
+    }
+
+    .photos {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .photos img {
+      width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+   <h1>THIS IS THE ART</H>
+   <h1>DIGITAL MUSEUM</H>
+   <h1>ONLY ONE EXHIBIT</H>
+   <h1>CURATED BY JET SKYRUNNER</H>
+
+  
+  </div>
+<!-- HTML -->
+<canvas id="canvas"></canvas>
+
+<style>
+  /* CSS */
+  canvas {
+    position: absolute;
+    top: 10;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+</style>
+ 
+<script>
+  // JavaScript
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+
+  // Set the canvas size to the size of the window
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  // Set the fill style to white
+  ctx.fillStyle = 'white';
+
+  // Generate random positions and sizes for the dots
+  const dots = Array.from({ length: 100 }, () => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    size: Math.random() * 3 + 1,
+  }));
+
+  function draw() {
+    // Clear the canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Draw the dots
+    for (const dot of dots) {
+      ctx.beginPath();
+      ctx.arc(dot.x, dot.y, dot.size, 0, 2 * Math.PI);
+      ctx.fill();
+    }
+
+    // Schedule the next frame
+    requestAnimationFrame(draw);
+  }
+
+  // Start drawing
+  draw();
+</script>
+
+
+    
+
+
+
+
+
+
+
